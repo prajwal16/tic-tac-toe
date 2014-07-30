@@ -1,0 +1,248 @@
+
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="theme.css">
+</head>
+<SCRIPT name = "JavaScript">
+var box = []; 
+function initialize(){
+  
+    t = 1;
+    change = 1; 
+      
+    for (var i=1;i<=9;i++)
+    {
+                 
+               box[i] = -1;
+    }
+               
+    return;
+    players_turn = "First Player"
+}
+
+
+
+function turnchange(t){
+  if (change == 1)  {
+    if (t == 0){
+        t = 1;
+        players_turn = "player" + 1
+    }
+    else {
+        t = 0;
+  players_turn = "player" + 2
+    }
+    
+  }
+  else {
+    t = t;
+  }
+  change = 1  
+  return (t); 
+}
+
+function changing(clicks){
+
+for( var i=1;i<=9;i++)
+{
+  if(clicks == i)
+  {
+    spot=box[i];
+   /* alert("hello inside loop");*/
+  }
+}
+
+if (spot == -1)
+{
+   if (t == 0)
+   {
+      xo = "  O  " ;                    
+      spot = 0             
+   }
+   else
+   {
+      xo = "  X  "  ;              
+      spot = 1       
+   }
+   for(var i=1;i<=9;i++)
+   {
+      if(clicks == i)
+      {
+        box[i]=spot;
+        /*alert("hello inside loop");*/
+      }
+   }   
+  
+}
+else
+{
+ if (spot == 0)
+ {
+       xo = "  O  ";
+ }
+   if (spot == 1)
+   {
+       xo = "  X  ";
+   }
+   change = 0 
+}
+return (xo) ;
+
+}
+function win(){
+
+    if(box[1]==box[2] && box[2]==box[3] && box[3]==0 ||
+      box[4]==box[5] && box[5]==box[6] && box[6]==0 ||
+      box[7]==box[8] && box[8]==box[9] && box[9]==0 ||
+      box[1]==box[4] && box[4]==box[7] && box[7]==0 ||
+      box[2]==box[5] && box[5]==box[8] && box[8]==0 ||
+      box[3]==box[6] && box[6]==box[9] && box[9]==0 ||
+      box[1]==box[5] && box[5]==box[9] && box[9]==0 ||
+      box[3]==box[5] && box[5]==box[7] && box[7]==0 )
+    {
+
+        alert ("Second Player Wins!!!");          
+        history.go(0) ; 
+    }
+    else if(box[1]==box[2] && box[2]==box[3] && box[3]==1 ||
+    box[4]==box[5] && box[5]==box[6] && box[6]==1 ||
+    box[7]==box[8] && box[8]==box[9] && box[9]==1 ||
+    box[1]==box[4] && box[4]==box[7] && box[7]==1 ||
+    box[2]==box[5] && box[5]==box[8] && box[8]==1 ||
+    box[3]==box[6] && box[6]==box[9] && box[9]==1 ||
+    box[1]==box[5] && box[5]==box[9] && box[9]==1 ||
+    box[3]==box[5] && box[5]==box[7] && box[7]==1 )
+    {
+
+        alert ("First Player Wins!!!");          
+        history.go(0)  ;
+    }
+    else if(box[1]!=-1 && box[2]!=-1 && box[3]!=-1 && box[4]!=-1 && box[5]!=-1 && box[6]!=-1 && box[7]!=-1 && box[8]!=-1 && box[9]!=-1)
+    {
+      alert("Match ties")
+      history.go(0);
+    }
+  
+}
+function change_b1(form){ 
+  
+    clicks = 1;    
+    changing(clicks) ;     
+    t = turnchange(t) ;  
+    form.b1.value = xo; 
+    form.whoseturn.value = players_turn;        
+    win(); 
+   return;
+}
+function change_b2(form){ 
+    clicks = 2;
+    changing(clicks) ;   
+    form.b2.value = xo;    
+    t = turnchange(t) ;
+    form.whoseturn.value = players_turn;      
+    win();
+    return;
+}
+
+function change_b3(form){ 
+    clicks = 3;
+    changing(clicks) ;
+    form.b3.value = xo;         
+    t = turnchange(t) ;    
+    form.whoseturn.value = players_turn ;
+    win();
+    return;   
+}
+
+function change_b4(form){ 
+    clicks = 4;
+    changing(clicks) ;
+    form.b4.value = xo;    
+    t = turnchange(t) ;    
+    form.whoseturn.value = players_turn ;    
+    win();
+    return;
+}
+
+function change_b5(form){ 
+    clicks = 5;
+    changing(clicks) ;
+    form.b5.value = xo;    
+    t = turnchange(t) ;
+    form.whoseturn.value = players_turn ;    
+    win();     
+    return;
+}
+
+function change_b6(form){ 
+    clicks = 6;
+    changing(clicks) ;
+    form.b6.value = xo;    
+    t = turnchange(t) ;
+    form.whoseturn.value = players_turn;     
+    win();
+    return;
+}
+
+function change_b7(form){ 
+    clicks = 7;
+    changing(clicks) ;
+    form.b7.value = xo;    
+    t = turnchange(t) ; 
+    form.whoseturn.value = players_turn;    
+    win();
+    return;
+}
+
+function change_b8(form){ 
+    clicks = 8;
+    changing(clicks) ;    
+    form.b8.value = xo;    
+    t = turnchange(t) ;
+    form.whoseturn.value = players_turn ;
+    win();    
+    return;
+}
+
+function change_b9(form){ 
+    clicks = 9;
+    changing(clicks) ;
+    form.b9.value = xo;    
+    t = turnchange(t) ;
+    form.whoseturn.value = players_turn ; 
+    win();
+    return;
+}
+</SCRIPT>
+
+
+<SCRIPT name = "JavaScript">
+initialize();
+</SCRIPT>
+
+<FORM>
+<input type = "button" name = "whoseturn" 
+ value = "who plays now">  
+<br><br><br><br>
+<table>
+<tr><td><input type = "button" name = "b1" value = "      "    onClick =
+change_b1(this.form)>  
+    <td><input type = "button" name = "b2" value = "      "    onClick = change_b2(this.form)> 
+    <td><input type = "button" name = "b3" value = "      "    onClick =
+change_b3(this.form)> 
+<tr><td><input type = "button" name = "b4" value = "      "    onClick =
+change_b4(this.form)> 
+    <td><input type = "button" name = "b5" value = "      "    onClick = change_b5(this.form)> 
+    <td><input type = "button" name = "b6" value = "      "    onClick =
+change_b6(this.form)> 
+<tr><td><input type = "button" name = "b7" value = "      "    onClick =
+change_b7(this.form)> 
+    <td><input type = "button" name = "b8" value = "      "    onClick = change_b8(this.form)>   
+    <td><input type = "button" name = "b9" value = "      "
+onClick = change_b9(this.form)> 
+</table>
+<br><br>
+
+<INPUT TYPE="button" VALUE="Reset Game" onClick="history.go(0)">
+</FORM>
+</html>
